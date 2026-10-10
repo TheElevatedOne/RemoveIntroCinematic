@@ -2,6 +2,8 @@
 
 ![Static Badge](https://img.shields.io/badge/Vibecoded-Grok-black?style=for-the-badge&labelColor=%236F0E82)
 
+![Icon](https://raw.githubusercontent.com/TheElevatedOne/RemoveIntroCinematic/refs/heads/main/thunderstore/icon.png)
+
 Risk of Rain 2 plays a studio splash and an intro cinematic while the game loads, then waits for you to skip the cinematic. Hiding the video is not enough: the clip and the intro cue still play audio.
 
 This plugin does not play that cinematic at all. Startup shows the loading bar, then goes to the main menu. The cinematic video does not play, and neither does its audio. The normal main-menu theme starts once the menu is actually up. Stage music, the logbook, and the ending cinematic are left alone.
