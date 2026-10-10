@@ -1,0 +1,35 @@
+# Team name on Thunderstore. Change this before `tcli publish`.
+# `make package` does not read this file. It zips thunderstore/manifest.json.
+
+[config]
+schemaVersion = "0.0.1"
+
+[package]
+namespace = "ELEVATED"
+name = "RemoveIntroCinematic"
+versionNumber = "1.0.0"
+description = "Removes the startup intro cinematic, video and audio. Loading goes straight to the main menu."
+websiteUrl = "https://github.com/TheElevatedOne/RemoveIntroCinematic"
+containsNsfwContent = false
+
+[package.dependencies]
+
+[build]
+icon = "./thunderstore/icon.png"
+readme = "./thunderstore/README.md"
+outdir = "./dist"
+
+[[build.copy]]
+source = "./dist/RemoveIntroCinematic.dll"
+target = "/"
+
+[[build.copy]]
+source = "./thunderstore/CHANGELOG.md"
+target = "/"
+
+[publish]
+repository = "https://thunderstore.io"
+communities = ["riskofrain2"]
+
+[publish.categories]
+riskofrain2 = ["mods", "tweaks", "client-side", "ai-generated"]
