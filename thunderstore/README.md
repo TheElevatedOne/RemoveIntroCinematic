@@ -1,5 +1,9 @@
 # Remove Intro Cinematic
 
+![Static Badge](https://img.shields.io/badge/Vibecoded-Grok-black?style=for-the-badge&labelColor=%236F0E82)
+
+![ICON](https://raw.githubusercontent.com/TheElevatedOne/RemoveIntroCinematic/refs/heads/main/thunderstore/icon.png)
+
 Risk of Rain 2 plays a studio splash and an intro cinematic while the game loads, then waits for you to skip it. Hiding the video leaves the audio playing.
 
 This mod does not play that cinematic. Startup shows the loading bar, then the main menu. There is no intro video, no intro audio, and no skip prompt.
