@@ -1,7 +1,0 @@
-{
-  "name": "RemoveIntroCinematic",
-  "version_number": "1.0.0",
-  "website_url": "",
-  "description": "Removes the startup intro cinematic, video and audio. Loading goes straight to the main menu.",
-  "dependencies": []
-}
