@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <AssemblyName>RemoveIntroCinematic</AssemblyName>
+    <RootNamespace>RemoveIntroCinematic</RootNamespace>
+    <Version>1.0.1</Version>
+    <Description>Removes the Risk of Rain 2 intro cinematic, including its video and audio.</Description>
+    <OutputPath>$(MSBuildThisFileDirectory)../../build/RemoveIntroCinematic/</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <UnityEngineDll Condition="'$(UnityEngineDll)' == ''">$(MSBuildThisFileDirectory)../../build/stub/UnityEngine.dll</UnityEngineDll>
+    <BepInExDll Condition="'$(BepInExDll)' == ''">$(MSBuildThisFileDirectory)../../third_party/bepinex/BepInEx.dll</BepInExDll>
+    <HarmonyDll Condition="'$(HarmonyDll)' == ''">$(MSBuildThisFileDirectory)../../third_party/bepinex/0Harmony.dll</HarmonyDll>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="UnityEngine">
+      <HintPath>$(UnityEngineDll)</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="BepInEx">
+      <HintPath>$(BepInExDll)</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="0Harmony">
+      <HintPath>$(HarmonyDll)</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+</Project>
