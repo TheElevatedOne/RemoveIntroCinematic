@@ -1,9 +1,0 @@
-{
-  "name": "RemoveIntroCinematic",
-  "version_number": "1.0.0",
-  "website_url": "https://github.com/TheElevatedOne/RemoveIntroCinematic",
-  "description": "Removes the startup intro cinematic, video and audio. Loading goes straight to the main menu.",
-  "dependencies": [
-    "bbepis-BepInExPack-5.4.2122"
-  ]
-}
