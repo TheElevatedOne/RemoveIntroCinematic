@@ -1,6 +1,8 @@
 # Remove Intro Cinematic
 
-![Static Badge](https://img.shields.io/badge/Vibecoded-Grok-black?style=for-the-badge&labelColor=%236F0E82)
+![Static Badge](https://img.shields.io/badge/CLAUDE-VIBECODED?style=for-the-badge&logo=claude&label=VIBECODED&labelColor=%23333333&color=%23de7356)
+
+![Icon](https://raw.githubusercontent.com/TheElevatedOne/RemoveIntroCinematic/refs/heads/main/icon.png)
 
 Gets you to the main menu faster. The mod skips:
 

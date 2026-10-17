@@ -20,7 +20,7 @@ namespace RemoveIntroCinematic
     {
         public const string PluginGUID = "com.elevated.RemoveIntroCinematic";
         public const string PluginName = "RemoveIntroCinematic";
-        public const string PluginVersion = "1.0.0";
+        public const string PluginVersion = "1.1.0";
 
         // Addressable keys the game hardcodes in RoR2Application / SplashScreenController.
         private const string SplashSceneGuid = "fe13e00695117284fb0d1b25422a0529";
@@ -179,10 +179,19 @@ namespace RemoveIntroCinematic
             }
         }
 
+        // Runs from RoR2Application.onLoad: an exception here would abort the loading coroutine and
+        // leave the game stuck at 99%, so never let one escape.
         private static void GoToTitle()
         {
-            MarkSplashSeen();
-            RoR2.Console.instance.SubmitCmd(null, "set_scene title");
+            try
+            {
+                MarkSplashSeen();
+                RoR2.Console.instance.SubmitCmd(null, "set_scene title");
+            }
+            catch (Exception e)
+            {
+                Log.LogError($"Failed to open the main menu: {e}");
+            }
         }
 
         // FadeToBlackManager only enables screen fades after it has seen the splash scene unload.
@@ -270,16 +279,24 @@ namespace RemoveIntroCinematic
             orig(self, scene, mode);
         }
 
-        // Vanilla starts the Wwise music system in StartIntroMusic. Since that was skipped, start it here
+        // Vanilla starts the Wwise music system in StartIntroMusic. Since that was skipped, run it here
         // on the first real scene (normally the main menu) so the scene's own track gets picked right after.
+        // Going through StartIntroMusic (instead of posting the event directly) keeps other mods' hooks on it
+        // working, e.g. R2API.Sound starts custom music systems there.
         private static void MusicController_SceneCatalog_OnSceneDefChanged(On.RoR2.MusicController.orig_SceneCatalog_OnSceneDefChanged orig, MusicController self, SceneDef sceneDef)
         {
             if (musicStartPending && sceneDef && !IsBootScene(sceneDef.baseSceneName))
             {
                 musicStartPending = false;
                 Log.LogInfo($"Starting music system in scene '{sceneDef.baseSceneName}'.");
-                AkSoundEngine.PostEvent("Play_Music_System", self.gameObject);
-                self.enableMusicSystem = true;
+                try
+                {
+                    self.StartIntroMusic();
+                }
+                catch (Exception e)
+                {
+                    Log.LogError($"Failed to start the music system: {e}");
+                }
             }
             orig(self, sceneDef);
         }
