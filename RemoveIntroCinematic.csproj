@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <AssemblyName>RemoveIntroCinematic</AssemblyName>
+    <RootNamespace>RemoveIntroCinematic</RootNamespace>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <DebugType>portable</DebugType>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <Version>1.0.0</Version>
+  </PropertyGroup>
+
+  <!--
+    Reference paths. Override on the command line / via the Makefile, e.g.
+      dotnet build -p:RoR2Dir="/path/to/Risk of Rain 2" -p:ProfileDir="/path/to/r2modman/profile"
+  -->
+  <PropertyGroup>
+    <RoR2Dir Condition="'$(RoR2Dir)' == ''">$(HOME)/.local/share/Steam/steamapps/common/Risk of Rain 2</RoR2Dir>
+    <ProfileDir Condition="'$(ProfileDir)' == ''">$(HOME)/.config/r2modmanPlus-local/RiskOfRain2/profiles/Default</ProfileDir>
+    <ManagedDir>$(RoR2Dir)/Risk of Rain 2_Data/Managed</ManagedDir>
+    <BepInExCoreDir>$(ProfileDir)/BepInEx/core</BepInExCoreDir>
+    <MMHookDir>$(ProfileDir)/BepInEx/plugins/MMHOOK</MMHookDir>
+    <RiskOfOptionsDll Condition="'$(RiskOfOptionsDll)' == ''">$(ProfileDir)/BepInEx/plugins/Rune580-Risk_Of_Options/RiskOfOptions/RiskOfOptions.dll</RiskOfOptionsDll>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="BepInEx" HintPath="$(BepInExCoreDir)/BepInEx.dll" Private="false" />
+    <Reference Include="MonoMod.RuntimeDetour" HintPath="$(BepInExCoreDir)/MonoMod.RuntimeDetour.dll" Private="false" />
+    <Reference Include="MonoMod.Utils" HintPath="$(BepInExCoreDir)/MonoMod.Utils.dll" Private="false" />
+    <Reference Include="MMHOOK_RoR2" HintPath="$(MMHookDir)/MMHOOK_RoR2.dll" Private="false" />
+    <Reference Include="RiskOfOptions" HintPath="$(RiskOfOptionsDll)" Private="false" />
+    <Reference Include="UnityEngine.ImageConversionModule" HintPath="$(ManagedDir)/UnityEngine.ImageConversionModule.dll" Private="false" />
+    <Reference Include="RoR2" HintPath="$(ManagedDir)/RoR2.dll" Private="false" />
+    <Reference Include="UnityEngine" HintPath="$(ManagedDir)/UnityEngine.dll" Private="false" />
+    <Reference Include="UnityEngine.CoreModule" HintPath="$(ManagedDir)/UnityEngine.CoreModule.dll" Private="false" />
+    <Reference Include="Unity.Addressables" HintPath="$(ManagedDir)/Unity.Addressables.dll" Private="false" />
+    <Reference Include="Unity.ResourceManager" HintPath="$(ManagedDir)/Unity.ResourceManager.dll" Private="false" />
+    <Reference Include="AK.Wwise.Unity.API" HintPath="$(ManagedDir)/AK.Wwise.Unity.API.dll" Private="false" />
+    <Reference Include="com.unity.multiplayer-hlapi.Runtime" HintPath="$(ManagedDir)/com.unity.multiplayer-hlapi.Runtime.dll" Private="false" />
+  </ItemGroup>
+
+</Project>

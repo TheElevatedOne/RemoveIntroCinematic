@@ -1,5 +1,3 @@
-build/
+bin/
+obj/
 dist/
-*.user
-.vs/
-.idea/
