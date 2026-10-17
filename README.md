@@ -2,6 +2,8 @@
 
 ![Static Badge](https://img.shields.io/badge/Vibecoded-Grok-black?style=for-the-badge&labelColor=%236F0E82)
 
+![Icon](https://raw.githubusercontent.com/TheElevatedOne/RemoveIntroCinematic/refs/heads/main/icon.png)
+
 Gets you to the main menu faster. The mod skips:
 
 - **The developer logo splash screens**
